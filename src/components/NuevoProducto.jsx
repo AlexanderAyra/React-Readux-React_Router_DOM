@@ -1,23 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // Actions de Redux
 import { crearNuevoProductoAction } from '../actions/productoActions'
 
 const NuevoProducto = () => {
+  // state del componente
+  const [nombre, setNombre] = useState('')
+  const [precio, setPrecio] = useState(0)
+
   const dispatch = useDispatch()
 
-  const agregarProducto = () => dispatch(crearNuevoProductoAction())
+  const agregarProducto = (producto) => dispatch(crearNuevoProductoAction(producto))
 
   const submitNuevoProducto = (e) => {
     e.preventDefault()
 
     // validar formulario
+    if (nombre.trim() === '' || precio <= 0) {
+      return
+    }
 
     // si no hay errores
 
     // crear el nuevo producto
-    agregarProducto()
+    agregarProducto({
+      nombre,
+      precio,
+    })
   }
 
   return (
@@ -38,6 +48,8 @@ const NuevoProducto = () => {
                   className='form-control'
                   placeholder='Nombre Producto'
                   name='nombre'
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
                 />
               </div>
               <div className='form-group'>
@@ -47,6 +59,9 @@ const NuevoProducto = () => {
                   className='form-control'
                   placeholder='Precio Producto'
                   name='precio'
+                  value={precio}
+                  onChange={(e) => setPrecio(Number(e.target.value))}
+
                 />
               </div>
               <button
