@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from './components/Header'
 
 const App = () => {
   return (
-    <div className='App'>
-      <h1>REDUX</h1>
+    <div>
+      <div>
+        <Header />
+      </div>
     </div>
   )
 }
