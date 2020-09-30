@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import {
   AGREGAR_PRODUCTO,
   AGREGAR_PRODUCTO_EXITO,
@@ -12,10 +13,24 @@ export function crearNuevoProductoAction(producto) {
 
     try {
       // Insertar en la API
-      await clienteAxios.post('/producto', producto)
+      await clienteAxios.post('/wdwdw', producto)
       dispatch(agregarProductoExito(producto))
+
+      // Alerta
+      Swal.fire(
+        'Correcto',
+        'El producto se agregó correctamente',
+        'success',
+      )
     } catch (error) {
       dispatch(agregarProductoError(true))
+
+      // alerta de error
+      Swal.fire({
+        icon: 'error',
+        title: 'Hubo un Error',
+        text: 'Hubo un Error, Intenta nevamente',
+      })
     }
   }
 }
