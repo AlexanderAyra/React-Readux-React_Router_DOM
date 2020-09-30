@@ -12,7 +12,7 @@ export function crearNuevoProductoAction(producto) {
 
     try {
       // Insertar en la API
-      await clienteAxios.post('/productos', producto)
+      await clienteAxios.post('/producto', producto)
       dispatch(agregarProductoExito(producto))
     } catch (error) {
       dispatch(agregarProductoError(true))
