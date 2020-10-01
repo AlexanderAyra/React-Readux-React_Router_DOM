@@ -16,7 +16,8 @@ const Productos = () => {
 
   // Obtener el State
   const productos = useSelector((state) => state.productos.productos)
-  console.log(productos)
+  const error = useSelector((state) => state.productos.error)
+  const cargando = useSelector((state) => state.productos.loading)
 
   return (
     <div>
@@ -25,6 +26,15 @@ const Productos = () => {
       >
         Listado de Productos
       </h2>
+
+      { error ? (
+        <p className='font-weight-bold alert alert-danger text-center mt-4'>
+          Hubo un Error
+        </p>
+      ) : null}
+
+      { cargando ? <p className='text-center'>Cargando...</p> : null }
+
       <table
         className='table table-striped'
       >
