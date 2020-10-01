@@ -6,11 +6,6 @@
       "precio": "31111"
     },
     {
-      "id": 2,
-      "nombre": "Jugo de Naranja",
-      "precio": "1"
-    },
-    {
       "nombre": "Jugo de Naranja",
       "precio": "300",
       "id": 3
@@ -29,16 +24,6 @@
       "nombre": "Rib eyes 1kg",
       "precio": 800,
       "id": 6
-    },
-    {
-      "nombre": "Alex",
-      "precio": 1213,
-      "id": 7
-    },
-    {
-      "nombre": "Alex",
-      "precio": 1213,
-      "id": 8
     },
     {
       "nombre": "pan",
