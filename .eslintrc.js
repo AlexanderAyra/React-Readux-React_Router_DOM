@@ -40,5 +40,6 @@ module.exports = {
     'no-underscore-dangle': [0],
     'react/jsx-props-no-spreading': [0],
     'no-shadow': [1],
+    'no-return-assign': [0]
   },
 };
