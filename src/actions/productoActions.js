@@ -3,6 +3,9 @@ import {
   AGREGAR_PRODUCTO,
   AGREGAR_PRODUCTO_EXITO,
   AGREGAR_PRODUCTO_ERROR,
+  COMENZAR_DESCARGAR_PRODUCTOS,
+  DESCARGA_PRODUCTOS_ERROR,
+  DESCARGA_PRODUCTOS_EXITO,
 } from '../types'
 import clienteAxios from '../config/axios'
 
@@ -13,7 +16,7 @@ export function crearNuevoProductoAction(producto) {
 
     try {
       // Insertar en la API
-      await clienteAxios.post('/wdwdw', producto)
+      await clienteAxios.post('/productos', producto)
       dispatch(agregarProductoExito(producto))
 
       // Alerta
@@ -51,4 +54,16 @@ const agregarProductoError = (estado) => ({
   type: AGREGAR_PRODUCTO_ERROR,
   payload: estado,
 
+})
+
+// Funcion que descarga los productos de la base de datos
+export function obtenerProductosAction() {
+  return async (dispatch) => {
+    dispatch(descargarProductos())
+  }
+}
+
+const descargarProductos = () => ({
+  type: COMENZAR_DESCARGAR_PRODUCTOS,
+  payload: true,
 })
