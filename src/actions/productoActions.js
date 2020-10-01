@@ -144,7 +144,7 @@ export function editarProductoAction(producto) {
       await clienteAxios.put(`/productos/${producto.id}`, producto)
       dispatch(editarProductoExito(producto))
     } catch (error) {
-
+      console.log(error)
     }
   }
 }
