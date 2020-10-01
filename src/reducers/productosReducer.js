@@ -12,6 +12,7 @@ import {
   OBTENER_PRODUCTO_EDITAR,
   PRODUCTO_EDITADO_ERROR,
   PRODUCTO_EDITADO_EXITO,
+  COMENZAR_EDICION_PRODUCTO,
 } from '../types'
 
 // Cada reducer tiene su propio state
