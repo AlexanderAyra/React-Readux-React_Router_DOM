@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
 import { obtenerProductosAction } from '../actions/productoActions'
+import Producto from './Producto'
 
 const Productos = () => {
   const dispatch = useDispatch()
@@ -12,6 +13,10 @@ const Productos = () => {
 
     cargarProductos()
   }, [])
+
+  // Obtener el State
+  const productos = useSelector((state) => state.productos.productos)
+  console.log(productos)
 
   return (
     <div>
@@ -32,6 +37,16 @@ const Productos = () => {
             <th scope='col'>Acciones</th>
           </tr>
         </thead>
+        <tbody>
+          {productos.length === 0 ? 'No hay Productos' : (
+            productos.map((producto) => (
+              <Producto
+                key={producto.id}
+                producto={producto}
+              />
+            ))
+          )}
+        </tbody>
       </table>
     </div>
   )
